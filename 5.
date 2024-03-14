@@ -1,0 +1,65 @@
+// 5. Define una clase en Dart llamada "Producto" con atributos como nombre, precio y
+cantidad en inventario. Crea objetos de esta clase, realiza operaciones como la
+compra, venta y mostrar los detalles actualizados de los productos. Es necesario
+validar el inventario de los productos. Es necesario hacer uso de los getter y setter
+para acceder a dicha información y modificarla.
+
+
+class Producto {
+  String _nombre;
+  double _precio;
+  int _cantidadInventario;
+
+  Producto(this._nombre, this._precio, this._cantidadInventario);
+
+ 
+  String get nombre => _nombre;
+  set nombre(String value) => _nombre = value;
+
+  double get precio => _precio;
+  set precio(double value) => _precio = value;
+
+  int get cantidadInventario => _cantidadInventario;
+  set cantidadInventario(int value) => _cantidadInventario = value;
+
+ //COMPRA
+  void comprar(int cantidad) {
+    if (cantidad > 0) {
+      _cantidadInventario += cantidad;
+      print('$cantidad unidades de $_nombre han sido compradas.');
+    } else {
+      print('La cantidad debe ser mayor que cero.');
+    }
+  }
+
+  // VENTA
+  void vender(int cantidad) {
+    if (cantidad > 0 && cantidad <= _cantidadInventario) {
+      _cantidadInventario -= cantidad;
+      print('$cantidad unidades de $_nombre han sido vendidas.');
+    } else {
+      print('No hay suficientes unidades disponibles para la venta.');
+    }
+  }
+
+  // Detalles del producto
+  void mostrarDetalles() {
+    print('Detalles del producto:');
+    print('Nombre: $_nombre');
+    print('Precio: \$$_precio');
+    print('Cantidad en inventario: $_cantidadInventario');
+  }
+}
+
+void main() {
+ 
+  Producto producto = Producto('Play Station 4, ', 800.000, 7);
+
+  producto.mostrarDetalles();
+
+  producto.comprar(1);
+
+  producto.vender(3);
+
+  producto.mostrarDetalles();
+}
