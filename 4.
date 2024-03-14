@@ -1,0 +1,22 @@
+// 4. Escribir un programa que defina una función que reciba una lista de cadenas de texto y devuelva una lista con las cadenas ordenadas alfanuméricas usando Dart. Por ejemplo, si la lista de entrada es ['manzana', '021laptop', ’zapato’, '&2top'], la lista de salida debe ser [‘&2top’, ‘021laptop’, ‘manzana’, ‘zapato’]. Tener en cuenta el código ASCII para la comparación de los elementos.
+
+List<String> ordenarLista(List<String> lista) {
+
+  int compararCadenas(String a, String b) {
+
+    return a.compareTo(b);
+  }
+
+  lista.sort(compararCadenas);
+  
+  return lista;
+}
+
+void main() {
+  List<String> lista = ['@', 'A', 'B','?', 'C'];
+  
+
+  List<String> listaOrdenada = ordenarLista(lista);
+  
+  print(listaOrdenada); 
+}
